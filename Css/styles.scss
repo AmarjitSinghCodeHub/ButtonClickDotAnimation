@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
+$bg:#1c1d1d;
+$fc:#eee;
+$menuTextColor:#3d3d3d;
+$menuIconColor:#3d3d3d;
+$xPos:-30px,0px,30px;
+$yPos:-30px,30px;
+$dotsize:3px;
+$dotColor:orange;
+
+@mixin FlexCenter(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    font-size: 10pt;
+    font-family: 'Work Sans', sans-serif;
+    width: 100%;
+    height: 100vh;
+    color: $fc;
+    background-color: $bg;
+    @include FlexCenter();
+}
+
+.divContainer{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #3d3d3dab;
+    border-radius: 5px;
+    @include FlexCenter();
+}
+
+.divBtn{
+    width: 60px;
+    height: 60px;
+    padding: 5px 10px;
+    background-color: blueviolet;
+    color:white;
+    letter-spacing: 1px;
+    box-shadow: 0 0 8px  #161616;
+    cursor: pointer;
+    @include FlexCenter();
+    border-radius: 50%;
+ 
+    opacity: 1;
+    z-index: 4;
+    transition: 0.3s all;
+}
+
+.divBtnToggle{
+    transform: scale(0.8);
+    box-shadow: none;
+    transition: 0.3s all;
+}
+
+.divDotContainer{
+    position: absolute;
+    @include FlexCenter();
+    z-index: 1;
+}
+
+
+.spDot{
+    position: absolute;
+    width:4px;
+    height:4px;
+    border-radius: 50%;
+    background-color:$dotColor;
+    transition: 0.5s all;
+    transition-delay: 0.1s;
+}
+
+.spDotN{
+    position: absolute;
+    width: $dotsize;
+    height:$dotsize;
+    border-radius: 50%;
+    background-color:#00acff;
+    transition: 0.5s all;
+    transition-delay: 0.2s;
+}
+
+.spDotM{
+    position: absolute;
+    width:5px;
+    height:5px;
+    border-radius: 50%;
+    background-color:#e22866;
+    transition: 0.5s all;
+    transition-delay: 0.3s;
+}
+
+
+@for $p from 1 through 12{
+    .active#{$p}{
+         @if($p == 1){
+             transform: translate(calc(50*$p) + px,calc(50*$p)  + px) !important;  
+             transition: 0.5s all;
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p == 2){
+             transform: translate(calc(25*$p) + px,calc(25*$p*(-1))  + px) !important;   
+             transition: 0.5s all;
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p == 3){
+             transform: translate(calc(50*1*(-1)) + px,calc(50*1)  + px) !important;  
+             transition: 0.5s all;  
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p == 4){
+             transform: translate(calc(50*(-1)) + px,calc(50*(-1))  + px) !important;  
+             transition: 0.5s all; 
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p == 5){
+             transform: translate(calc(35*1) + px,calc(35*1)  + px) !important;  
+             transition: 0.5s all;
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p == 6){
+             transform: translate(calc(35*1) + px,calc(35*1*(-1))  + px) !important;   
+             transition: 0.5s all;
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p == 7){
+             transform: translate(calc(35*1*(-1)) + px,calc(35*1)  + px) !important;  
+             transition: 0.5s all;  
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p ==8){
+             transform: translate(calc(35*(-1)) + px,calc(35*(-1))  + px) !important;  
+             transition: 0.5s all; 
+             transition-delay: calc($p * 0.1) + s;
+         }
+         @if($p == 9){
+            transform: translate(calc(65*1) + px,calc(65*1)  + px) !important;  
+            transition: 0.5s all;
+            transition-delay: calc($p * 0.01) + s;
+        }
+        @if($p == 10){
+            transform: translate(calc(65*1) + px,calc(65*1*(-1))  + px) !important;   
+            transition: 0.5s all;
+            transition-delay: calc($p * 0.01) + s;
+        }
+        @if($p == 11){
+            transform: translate(calc(65*1*(-1)) + px,calc(65*1)  + px) !important;  
+            transition: 0.5s all;  
+            transition-delay: calc($p * 0.01) + s;
+        }
+        @if($p ==12){
+            transform: translate(calc(65*(-1)) + px,calc(65*(-1))  + px) !important;  
+            transition: 0.5s all; 
+            transition-delay: calc($p * 0.01) + s;
+        }
+     }
+ }

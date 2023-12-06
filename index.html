@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Css/styles.css" type="text/css"/>
+</head>
+<body>
+    
+<div class="divContainer">
+
+    <div class="divBtn">
+        Click
+    </div>
+
+    <div class="divDotContainer">
+        <span class="spDot" id="sp1"></span>
+        <span class="spDot" id="sp2"></span>
+        <span class="spDot" id="sp3"></span>
+        <span class="spDot" id="sp4"></span>
+        <span class="spDotN" id="sp5"></span>
+        <span class="spDotN" id="sp6"></span>
+        <span class="spDotN" id="sp7"></span>
+        <span class="spDotN" id="sp8"></span>
+        <span class="spDotM" id="sp9"></span>
+        <span class="spDotM" id="sp10"></span>
+        <span class="spDotM" id="sp11"></span>
+        <span class="spDotM" id="sp12"></span>
+    </div>
+
+
+</div>
+
+<script>
+    let _btn=document.querySelector('.divBtn');
+    let spList=document.querySelectorAll('.spDot');
+    let spListOne=document.querySelectorAll('.spDotN');
+    let spListTwo=document.querySelectorAll('.spDotM');
+    var x=1;
+    _btn.onclick=function(){
+        this.classList.toggle('divBtnToggle');
+        x=1
+        spList.forEach((s)=>{
+          s.classList.toggle('active' + x);
+          x=x+1;
+        });
+        spListOne.forEach((m)=>{
+          m.classList.toggle('active' + x);
+          x=x+1;
+        });
+        spListTwo.forEach((m)=>{
+          m.classList.toggle('active' + x);
+          x=x+1;
+        });
+        x=0;
+    }
+
+</script>
+
+
+</body>
+</html>
